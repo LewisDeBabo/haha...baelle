@@ -6,7 +6,7 @@ public class Kugelfangen {
     private GLTastatur tastatur;
 
     private Box dieBox;
-    private Kugel kugel1, kugel2, kugel3;
+    private Kugel[] kugel;
 
     public Kugelfangen() {
         kamera = new GLKamera();

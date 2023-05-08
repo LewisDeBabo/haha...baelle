@@ -6,7 +6,6 @@ public class Box{
 
     public Box() {
         quader = new GLQuader(0,0,0,100,50,200);
-        quader.setzeFarbe(1,0,0);
         quader.setzeTextur("src/img/weepingbell.png");
     }
     public void bewegeLinks(){
