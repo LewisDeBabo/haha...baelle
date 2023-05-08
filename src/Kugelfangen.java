@@ -22,7 +22,7 @@ public class Kugelfangen {
     }
 
     public void fuehreAus() {
-        //kys
+
     }
 }
 
