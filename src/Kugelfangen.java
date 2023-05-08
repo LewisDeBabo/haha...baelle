@@ -10,13 +10,14 @@ public class Kugelfangen {
 
     public Kugelfangen() {
         kamera = new GLKamera();
-        kamera.setzePosition(0, 500, 800);
+        kamera.setzePosition(0, 700, 900);
 
         licht = new GLLicht();
-        himmel = new GLHimmel("src/img/Sterne.jpg");
+        himmel = new GLHimmel("src/img/donnisad.jpg");
         tastatur = new GLTastatur();
 
         Spielfeld spielfeld = new Spielfeld(1000, 1000);
+        Box dieBox = new Box();
 
         fuehreAus();
     }
