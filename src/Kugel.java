@@ -8,8 +8,14 @@ public class Kugel{
     private boolean istAktiv;
     private double vX, vZ;
 
-    public Kugel(){
-        kugel = new GLKugel(0,0,0,25,"src/img/donniface.jpg");
+    public Kugel(Spielfeld pSpielfeld, Box pBox){
+        kugel = new GLKugel(0,20,0,15,"src/img/donniface.jpg");
+        feld = pSpielfeld;
+        dieBox = pBox;
+    }
+
+    public void move(){
+        kugel.verschiebe(0,0,0);
     }
 
 }
