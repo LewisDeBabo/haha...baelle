@@ -9,7 +9,7 @@ public class Kugel{
     private double vX, vZ;
 
     public Kugel(){
-
+        kugel = new GLKugel(0,0,0,25,"src/img/donniface.jpg");
     }
 
 }

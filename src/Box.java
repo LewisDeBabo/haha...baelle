@@ -5,8 +5,8 @@ public class Box{
     double breite, tiefe;
 
     public Box() {
-        quader = new GLQuader(0,0,0,50,100,200);
-        quader.setzeTextur("src/img/weepingbelle.png");
+        quader = new GLQuader(0,50,0,50,100,50);
+        quader.setzeTextur("src/img/dick.jpg");
     }
     public void bewegeLinks(){
         quader.verschiebe(-1.5,0,0);
