@@ -4,10 +4,15 @@ public class Kugelfangen {
     private GLLicht licht;
     private GLHimmel himmel;
     private GLTastatur tastatur;
+    private GLTafel schwoffel;
+
+    public double pungte = 0;
 
     private Box dieBox;
     private Kugel[] kugel;
     private Spielfeld spielfeld;
+    int tiefe = 1000;
+    int breite = 1000;
 
     public Kugelfangen() {
         kamera = new GLEntwicklerkamera();
@@ -17,11 +22,11 @@ public class Kugelfangen {
         himmel = new GLHimmel("src/img/donnisad.jpg");
         tastatur = new GLTastatur();
 
-        spielfeld = new Spielfeld(1000, 1000);
+        spielfeld = new Spielfeld(breite, tiefe);
 
         dieBox = new Box();
 
-        kugel = new Kugel[50];
+        kugel = new Kugel[200];
         for (int i = 0; i < kugel.length; i++) {
             kugel[i] = new Kugel(spielfeld, dieBox);
         }
@@ -30,23 +35,38 @@ public class Kugelfangen {
     }
 
     public void samba() {
+        schwoffel = new GLTafel(0, 100, -1200-tiefe/2, -breite/2, breite/2);
+        schwoffel.setzeText("Pungte: " + pungte,1500);
         while (!tastatur.esc()) {
-            if(tastatur.links()){
+            if (tastatur.links()) {
                 dieBox.bewegeLinks();
             }
-            if(tastatur.rechts()){
+            if (tastatur.rechts()) {
                 dieBox.bewegeRechts();
             }
-            if(tastatur.oben()){
+            if (tastatur.oben()) {
                 dieBox.bewegevorne();
             }
-            if(tastatur.unten()){
+            if (tastatur.unten()) {
                 dieBox.bewegehinten();
             }
-            Sys.warte();
+
+            for (int i = 0; i < kugel.length; i++) {
+                kugel[i].lightningMcQueen_rooh_beer();
             }
+
+            for (int i = 0; i < kugel.length; i++) {
+                if (kugel[i].getroffen()) {
+                    pungte = pungte + 1;
+                    schwoffel.setzeText("Punkte: " + pungte,200);
+                }
+            }
+
+            Sys.warte();
+        }
         Sys.beenden();
     }
 }
+
 
 

@@ -7,6 +7,7 @@ public class Spielfeld{
     public Spielfeld(double pBreite, double pTiefe){
         breite = pBreite;
         tiefe = pTiefe;
+
         untergrund = new GLQuader(0,0,0, breite,20,tiefe);
         untergrund.setzeTextur("src/img/donnih.jpg");
 
@@ -20,4 +21,13 @@ public class Spielfeld{
 
         w4 = new GLQuader(-breite/2,0,0,30,200,tiefe,"src/img/cobalt.jpg");
     }
+
+    public double gibbreite(){
+        return breite;
+    }
+    public double gibtiefe(){
+        return tiefe;
+    }
+
+
 }
