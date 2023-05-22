@@ -4,7 +4,7 @@ public class Kugelfangen {
     private GLLicht licht;
     private GLHimmel himmel;
     private GLTastatur tastatur;
-    private GLTafel schwoffel;
+    private GLTafel schwoffel,schwaffel;
 
     public int pungte = 0;
 
@@ -59,7 +59,12 @@ public class Kugelfangen {
             }
             schwoffel.setzeText("Punkte: " + pungte,100);
 
-
+            if(pungte == 200){
+                schwaffel = new GLTafel(0, 100, -600-tiefe/2, -breite/4, breite/4,"monke.jpeg");
+                schwaffel.setzeText("Gewonnen",100);
+                Sys.warte(5000);
+                Sys.beenden();
+            }
             Sys.warte();
         }
         Sys.beenden();

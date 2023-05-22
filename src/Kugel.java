@@ -28,7 +28,7 @@ public class Kugel{
         if(-feld.gibbreite()/2>= kugel.gibX()-20||+feld.gibbreite()/2<= kugel.gibX()+20){
             xspeed = -xspeed;
         }
-        kugel.drehe(0, Math.random() * 2 - 1, 0);
+        kugel.drehe(0, Math.random() * 2 - 0.75, 0);
         kugel.verschiebe(xspeed, 0, zspeed);
 
     }
