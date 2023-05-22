@@ -19,6 +19,9 @@ public class Kugel{
     }
 
     public void lightningMcQueen_rooh_beer() {
+        if(getroffen()){
+            kugel.setzePosition(-1000000,-1000000,0);
+        }
         if(-feld.gibtiefe()/2>= kugel.gibZ()-20||+feld.gibtiefe()/2<= kugel.gibZ()+20){
             zspeed = -zspeed;
         }
@@ -27,9 +30,7 @@ public class Kugel{
         }
         kugel.drehe(0, Math.random() * 2 - 1, 0);
         kugel.verschiebe(xspeed, 0, zspeed);
-        if(getroffen()){
-            kugel.setzePosition(-1000000,-1000000,0);
-        }
+
     }
 
     public boolean getroffen() {
@@ -43,3 +44,4 @@ public class Kugel{
 
     }
 }
+//

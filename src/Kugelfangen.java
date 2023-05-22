@@ -6,7 +6,7 @@ public class Kugelfangen {
     private GLTastatur tastatur;
     private GLTafel schwoffel;
 
-    public double pungte = 0;
+    public int pungte = 0;
 
     private Box dieBox;
     private Kugel[] kugel;
@@ -35,32 +35,30 @@ public class Kugelfangen {
     }
 
     public void samba() {
-        schwoffel = new GLTafel(0, 100, -1200-tiefe/2, -breite/2, breite/2);
-        schwoffel.setzeText("Pungte: " + pungte,1500);
+        schwoffel = new GLTafel(0, 100, -600-tiefe/2, -breite/4, breite/4);
+        schwoffel.setzeText("Pungte: " + pungte,100);
         while (!tastatur.esc()) {
-            if (tastatur.links()) {
+            if (tastatur.links() && dieBox.gibX() > -breite/2 +40) {
                 dieBox.bewegeLinks();
             }
-            if (tastatur.rechts()) {
+            if (tastatur.rechts() && dieBox.gibX() < breite/2 -40) {
                 dieBox.bewegeRechts();
             }
-            if (tastatur.oben()) {
+            if (tastatur.oben() && dieBox.gibZ() > -tiefe/2 +40) {
                 dieBox.bewegevorne();
             }
-            if (tastatur.unten()) {
+            if (tastatur.unten() && dieBox.gibZ() < tiefe/2 -40) {
                 dieBox.bewegehinten();
             }
 
             for (int i = 0; i < kugel.length; i++) {
+                if (kugel[i].getroffen()) {
+                    pungte++;
+                }
                 kugel[i].lightningMcQueen_rooh_beer();
             }
+            schwoffel.setzeText("Punkte: " + pungte,100);
 
-            for (int i = 0; i < kugel.length; i++) {
-                if (kugel[i].getroffen()) {
-                    pungte = pungte + 1;
-                    schwoffel.setzeText("Punkte: " + pungte,200);
-                }
-            }
 
             Sys.warte();
         }
