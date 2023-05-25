@@ -60,7 +60,8 @@ public class Kugelfangen {
             schwoffel.setzeText("Punkte: " + pungte,100);
 
             if(pungte == 200){
-                schwaffel = new GLTafel(0, 100, -600-tiefe/2, -breite/4, breite/4,"monke.jpeg");
+                schwoffel.setzeSichtbarkeit(false);
+                schwaffel = new GLTafel(0, 100, -600-tiefe/2, -breite/4, breite/4,"src/img/monke.jpeg");
                 schwaffel.setzeText("Gewonnen",100);
                 Sys.warte(5000);
                 Sys.beenden();
